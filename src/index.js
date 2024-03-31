@@ -15,6 +15,7 @@ import Preview from './components/Preview/Preview';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  //Routing 
   <Provider store={store}>
    <Router>
         <Routes>
@@ -23,11 +24,8 @@ root.render(
             <Route path='manage' element={<Track/>}/>
             <Route path='add' element={<Add/>}/>
             <Route path='preview'element={<Preview/>}/>            
-            
             <Route path='profile' element={<Profile/>}/>
-            
           </Route>
-          
         </Routes>
       </Router>
   </Provider>

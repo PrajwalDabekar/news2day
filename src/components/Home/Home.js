@@ -3,7 +3,7 @@ import NewsCard from "../NewsCard/NewsCard"
 
 function Home() {
     const formData = useSelector(state => state.formData);
-    // const imgData = useSelector((state) => state.formDa)
+    
     return(
 
         <div>

@@ -1,5 +1,6 @@
 import {createSlice, nanoid} from '@reduxjs/toolkit'
 
+//initial state of data
 const initialState = {
     formData:[{
         id:nanoid(),
@@ -17,13 +18,15 @@ const initialState = {
 export const newsSlice = createSlice({
     name:'news',
     initialState,
+    // reducers
     reducers:{
+        //reducer to add news in store
         addNews:(state,action)=>{
             const forminfo = action.payload
             state.formData.push(forminfo)
             
         },
-        
+        //reducer to delete news from store
         deleteNews:(state,action)=>{
             state.formData = state.formData.filter((news)=> news.id !==action.payload)
         },

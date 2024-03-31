@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { addNews, updateImageData } from '../../feature/formSlice';
 import { Link, useNavigate } from 'react-router-dom';
-//import { uploadNews } from './actions'; // Define your Redux action
+
 
 const NewsForm = () => {
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const NewsForm = () => {
     description: '',
     image: null
   });
-
+  //function to handle the changes done in the input field
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -29,9 +29,12 @@ const NewsForm = () => {
       image: URL.createObjectURL(e.target.files[0])
     });
   };
+  //navigate to preview 
   const handlePreview = ()=>{
     history('/preview',{state:formData})
   }
+
+  //function to handle the submit and to send data to redux store
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addNews(formData));
@@ -124,11 +127,7 @@ const NewsForm = () => {
                   type="file"
                   accept="image/*"
                   placeholder="Upload File"
-                  //value={file}
-                  //ref={fileInputRef}
                   onChange={handleImageChange}
-
-                  //onChange={(e)=> setFile(fileInputRef.current.files[0])}
                   required
                 />
               </div>
@@ -185,8 +184,6 @@ const NewsForm = () => {
   );
 };
 
-// const mapDispatchToProps = {
-//   uploadNews,
-// };
+
 export default NewsForm
-// export default connect(null, mapDispatchToProps)(NewsForm);
+

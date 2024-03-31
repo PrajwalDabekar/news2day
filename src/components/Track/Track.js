@@ -5,9 +5,7 @@ import { deleteNews } from "../../feature/formSlice";
 function Track() {
     const newsfeed = useSelector(state => state.formData)
     const dispatch = useDispatch()
-    console.log(newsfeed)
- 
-  
+    
     return(
         <div className="p-4">
       <h1 className="text-center font-semibold text-2xl mb-2">Manage News Feeds</h1>
@@ -27,6 +25,7 @@ function Track() {
           </tr>
         </thead>
         <tbody>
+            {/* loop to iterate the multiple news  */}
           {newsfeed.map((feed) => (
             <tr key={feed.id}>
               <td className="px-8 py-4 border-2">{feed.title}</td>
